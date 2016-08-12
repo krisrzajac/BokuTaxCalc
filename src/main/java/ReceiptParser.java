@@ -6,7 +6,7 @@ public class ReceiptParser {
     private static String PATTERN_NEWLINE = "\n";
     private static char PATTERN_SPACE = ' ';
 
-    private static String[] EXEMPT_WORDS = {"book", "chocolate bar", "box of chocolates", "headache pills", "chocolates"};
+    private static String[] EXEMPT_WORDS = {"book", "chocolate", "pill"};
 
     public ReceiptParser()
     {
@@ -35,6 +35,7 @@ public class ReceiptParser {
     * */
     public Item ParseLine(String in)
     {
+    	
         return new Item(
                 GetName(in),
                 GetPrice(in),
@@ -50,6 +51,7 @@ public class ReceiptParser {
 
 public String GetName(String in)
 {
+	
     return  in.substring(in.indexOf(PATTERN_SPACE)+1,
             in.lastIndexOf(PATTERN_AT)-1);
 }
